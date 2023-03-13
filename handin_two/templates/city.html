@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+  {{ super() }}
+  
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{ super() }}
+<main>
+    
+
+    <section id="articles">
+        <article>
+            <h4>Journal {{ city }}</h4>
+            <img src="{{ url_for('static', filename=added_url)}}" alt ="{{ city }}"> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id repellendus, vitae maiores incidunt facere illum totam voluptatum. Nihil atque odit error inventore voluptatem fugiat labore tempora. Beatae, saepe omnis!</p>
+        </article>
+
+
+
+
+        
+    </section>
+   
+
+</main>
+ 
+{% endblock %}

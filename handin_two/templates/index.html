@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head %}
+  {{ super() }}
+  
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{ super() }}
+<main>
+    
+
+    <h1>Germany!!!</h1>
+    <ul>
+        {% for key, value in cities.items() %}
+            <li><a href="{{ url_for('city', placeholder=key) }}">{{ value['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+
+</main>
+ 
+{% endblock %}
