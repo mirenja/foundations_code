@@ -10,6 +10,7 @@ cities = {
 @app.route('/')
 def index():
     
+    
     return render_template('index.html', cities=cities)
 @app.route('/city/<placeholder>')
 def city(placeholder):

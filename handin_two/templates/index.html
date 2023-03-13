@@ -13,8 +13,9 @@
 
     <h1 style="text-align: center;">Germany!!!</h1>
     {% for city_key, city_info in cities.items() %}
-        <li style="list-style: none;" >
+        <li class="home" >
             <a href="{{ url_for('city', placeholder=city_key) }}">{{ city_info['name'] }}</a>
+            <img src="{{ url_for('static', filename=city_info['address']) }}" alt="{{ city_info['name'] }}">
         </li>
     {% endfor %}
 
