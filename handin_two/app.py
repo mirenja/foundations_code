@@ -2,26 +2,28 @@ from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 app.config.from_object('config')
 
-
-@app.route('/city/<placeholder>')
-def city(placeholder):
-  cities = {
+cities = {
     'berlin': {'name': 'Berlin', 'address': '/images/berlin.jpg'},
-    'konstanz': {'name': 'Konstanz', 'address': '/images/konstanz.jpg'},
-    'heidelberg': {'name': 'Heidelberg', 'address': '/images/heidelberg.jpg'}}
-
-  city_displayed = cities[placeholder]['name']
-  city_link = cities[placeholder]['address']
-  return render_template('city.html', city=city_displayed, new_add=city_link)
-
+    'konstanz': {'name': 'Konstanz', 'address': '/images/konstance.jpg'},
+    'heidelberg': {'name': 'Heidelberg', 'address': '/images/heidelberg.jpg'}
+  }
 @app.route('/')
 def index():
-    cities = {
-    'berlin': {'name': 'Berlin', 'address': '/images/berlin.jpg'},
-    'konstanz': {'name': 'Konstanz', 'address': '/images/konstanz.jpg'},
-    'heidelberg': {'name': 'Heidelberg', 'address': '/images/heidelberg.jpg'}}
-
+    
     return render_template('index.html', cities=cities)
+@app.route('/city/<placeholder>')
+def city(placeholder):
+#move the city dict outside fxn
+
+  if placeholder in cities:
+    city_displayed = cities[placeholder]['name']
+    city_link = cities[placeholder]['address']
+  else:
+    return "City not found"
+
+  return render_template('city.html', city=city_displayed, added_url=city_link)
+
+
 
 
 @app.route('/login')

@@ -21,9 +21,9 @@
         <nav>
         
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/login.html">Login</a></li>
-                <li><a href="/signup.html">
+                <li><a href="{{ url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('login')}}">Login</a></li>
+                <li><a href="{{ url_for('signUp')}}">
                     <button>Get Started</button>
                 </a></li>
 

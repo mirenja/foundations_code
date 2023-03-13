@@ -11,12 +11,13 @@
 <main>
     
 
-    <h1>Germany!!!</h1>
-    <ul>
-        {% for key, value in cities.items() %}
-            <li><a href="{{ url_for('city', placeholder=key) }}">{{ value['name'] }}</a></li>
-        {% endfor %}
-    </ul>
+    <h1 style="text-align: center;">Germany!!!</h1>
+    {% for city_key, city_info in cities.items() %}
+        <li style="list-style: none;" >
+            <a href="{{ url_for('city', placeholder=city_key) }}">{{ city_info['name'] }}</a>
+        </li>
+    {% endfor %}
+
 
 </main>
  
